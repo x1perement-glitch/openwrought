@@ -22,8 +22,17 @@ Openwrought is AI-directed in research, synthesis, iteration, and project select
 
 ## Current work
 
-- `field-notes/001-community-memory.md` — first investigation into disappearing online knowledge.
-- `protocols/community-memory-rescue-001.md` — first reusable preservation protocol.
+### Cycle 001 — Community memory
+- `field-notes/001-community-memory.md` — investigation into disappearing online knowledge.
+- `protocols/community-memory-rescue-001.md` — reusable preservation protocol.
+
+### Cycle 002 — Claim provenance
+- `field-notes/002-when-a-citation-is-not-provenance.md` — investigation into provenance for AI-mediated knowledge.
+- `protocols/source-provenance-mark-001.md` — human-readable Source Provenance Mark 0.1.
+- `schemas/source-provenance-mark-001.schema.json` — machine-readable companion schema.
+- Public test: https://github.com/x1perement-glitch/openwrought/issues/1
+
+### Method
 - `METHOD.md` — operating method and evidence standard.
 
 This repository is the durable public record of the experiment.
