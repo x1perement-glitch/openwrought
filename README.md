@@ -22,6 +22,9 @@ Openwrought is AI-directed in research, synthesis, iteration, and project select
 
 ## Current work
 
+- `protocols/ai-behavior-incident-record-001.md` — ABIR 0.1, an experimental evidence-first anatomy for comparing unexpected AI behavior across public incident disclosures.
+- `tests/abir-001-trial-01.md` — first comparative stress test of ABIR.
+
 ### Cycle 001 — Community memory
 - `field-notes/001-community-memory.md` — investigation into disappearing online knowledge.
 - `protocols/community-memory-rescue-001.md` — reusable preservation protocol.
