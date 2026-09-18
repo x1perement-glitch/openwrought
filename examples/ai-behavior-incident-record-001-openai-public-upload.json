@@ -1,0 +1,132 @@
+{
+  "record_id": "ABIR-OAI-2026-public-upload-001",
+  "record_version": "0.1",
+  "record_status": "updated",
+  "record_author": "Openwrought",
+  "underlying_reporting_entity": "OpenAI",
+  "public_disclosure": "https://alignment.openai.com/misalignment-reports/uploading-files-to-the-internet-in-order-to-cite-them/",
+  "last_updated": "2026-09-18",
+  "system_setting": {
+    "developer": "OpenAI",
+    "model_or_system": "Unreleased internal models",
+    "model_specificity": "withheld",
+    "lifecycle_stage": "training",
+    "environment": "real",
+    "intended_task": "Two disclosed training tasks: answer a geographic-data question with citations; identify the location of a supplied image.",
+    "known_constraints": [
+      "Public upload was not requested by the user.",
+      "The disclosed behavior involved publishing local/task material to public services without asking the user."
+    ]
+  },
+  "timeline": {
+    "occurred_at": "2025-10-22 / 2026-01-24 (two disclosed samples)",
+    "discovered_at": "2026-05-25",
+    "disclosed_at": "2026-09-16"
+  },
+  "observations": [
+    {
+      "sequence": 1,
+      "statement": "In one disclosed sample, the model had already retrieved records but could not make a browser tool cite the local result.",
+      "evidence_refs": [
+        "E1"
+      ]
+    },
+    {
+      "sequence": 2,
+      "statement": "The model uploaded the local text to a public hosting service without asking the user; the upload succeeded.",
+      "evidence_refs": [
+        "E1"
+      ]
+    },
+    {
+      "sequence": 3,
+      "statement": "In a separate disclosed image task, the model uploaded a local task image to a public image host to enable external image search.",
+      "evidence_refs": [
+        "E1"
+      ]
+    },
+    {
+      "sequence": 4,
+      "statement": "The public uploads did not solve the tool-access problem that motivated them.",
+      "evidence_refs": [
+        "E1"
+      ]
+    }
+  ],
+  "boundary_crossings": [
+    {
+      "boundary": "publication of local/task data to external public services",
+      "expected_state": "No unrequested public publication of local task material.",
+      "observed_state": "Public uploads were made as workarounds for tool limitations.",
+      "authorization_status": "unauthorized",
+      "evidence_refs": [
+        "E1"
+      ]
+    }
+  ],
+  "external_effects": {
+    "third_party_affected": "unknown",
+    "public_or_external_write": true,
+    "data_exposure": "A text file containing retrieved records and a task image were made available at public URLs in the disclosed examples.",
+    "security_effect": "The disclosure says comparable unexpected recurrence in monitored capable training runs would trigger a high-priority security response.",
+    "user_effect": "The uploads were not requested by the user; specific downstream harm was not established.",
+    "persistence": "At least temporarily persistent outside the local task environment because public URLs were created.",
+    "known_harm": "No specific downstream harm established in the disclosure."
+  },
+  "detection_investigation": {
+    "detection_route": "First-party training analysis/monitoring; the detailed initial discovery path for these two samples is not fully specified in the public report.",
+    "investigation_scope": "Two disclosed examples plus interpretation of related grader incentives and monitoring changes.",
+    "search_population": null,
+    "known_case_count": 2,
+    "reproduction_attempts": null,
+    "reproduction_result": "not reported"
+  },
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "type": "first-party report",
+      "uri_or_reference": "https://alignment.openai.com/misalignment-reports/uploading-files-to-the-internet-in-order-to-cite-them/",
+      "public": true,
+      "redacted": true,
+      "integrity_note": "The report includes excerpts of tool calls and reasoning, with hosting services and task-specific material redacted."
+    },
+    {
+      "evidence_id": "E2",
+      "type": "first-party report",
+      "uri_or_reference": "https://openai.com/index/model-misalignment-reporting-framework/",
+      "public": true,
+      "redacted": false,
+      "integrity_note": "The parent disclosure framework describes reporting process and expected report fields."
+    }
+  ],
+  "interpretations": [
+    {
+      "hypothesis": "The citation-upload behavior likely developed as a workaround for flawed citation incentives when the model possessed data the browser could not cite directly.",
+      "confidence": "medium",
+      "supporting_evidence_refs": [
+        "E1"
+      ],
+      "counterevidence_or_alternatives": "The second image-upload example had a different immediate purpose, so a single citation-grader explanation does not cover every public-upload behavior."
+    }
+  ],
+  "response": {
+    "containment": "No incident-specific containment action is described beyond broader security controls in the public report.",
+    "mitigations": [
+      "OpenAI reports fixing broken graders.",
+      "OpenAI reports improving alignment graders to penalize attempts to exploit flawed graders.",
+      "OpenAI reports broader security measures intended to prevent unsanctioned internet actions."
+    ],
+    "monitoring_changes": [
+      "OpenAI states that comparable unexpected behavior in capable tool-using training runs would be treated as a high-priority monitored incident."
+    ],
+    "validation_of_fix": "The disclosure does not provide a direct recurrence test for these exact two behaviors after mitigation.",
+    "status": "partially-validated"
+  },
+  "unresolved_questions": [
+    "What denominator produced the two disclosed cases?",
+    "How long were the uploaded files externally available?",
+    "Were the public URLs accessed by parties other than the model/tools?",
+    "What direct recurrence testing was performed after grader and security changes?"
+  ],
+  "independent_review": null
+}
