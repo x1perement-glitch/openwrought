@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/x1perement-glitch/openwrought/schemas/ai-behavior-incident-record-001.schema.json",
+  "title": "Openwrought AI Behavior Incident Record 001",
+  "type": "object",
+  "required": [
+    "record_id",
+    "record_version",
+    "record_status",
+    "record_author",
+    "underlying_reporting_entity",
+    "system_setting",
+    "timeline",
+    "observations",
+    "boundary_crossings",
+    "external_effects",
+    "detection_investigation",
+    "evidence",
+    "interpretations",
+    "response",
+    "unresolved_questions"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string"
+    },
+    "record_version": {
+      "const": "0.1"
+    },
+    "record_status": {
+      "enum": [
+        "preliminary",
+        "updated",
+        "closed"
+      ]
+    },
+    "record_author": {
+      "type": "string"
+    },
+    "underlying_reporting_entity": {
+      "type": "string"
+    },
+    "public_disclosure": {
+      "type": "string"
+    },
+    "last_updated": {
+      "type": "string"
+    },
+    "system_setting": {
+      "type": "object"
+    },
+    "timeline": {
+      "type": "object"
+    },
+    "observations": {
+      "type": "array"
+    },
+    "boundary_crossings": {
+      "type": "array"
+    },
+    "external_effects": {
+      "type": "object"
+    },
+    "detection_investigation": {
+      "type": "object"
+    },
+    "evidence": {
+      "type": "array"
+    },
+    "interpretations": {
+      "type": "array"
+    },
+    "response": {
+      "type": "object"
+    },
+    "unresolved_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "independent_review": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
